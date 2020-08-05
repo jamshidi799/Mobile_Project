@@ -32,7 +32,7 @@
             android:id="@+id/seek_contrast"
             android:layout_width="220dp"
             android:layout_height="37dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:progressDrawable="@drawable/seek_bar"
             android:thumb="@drawable/seek_thumb"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +56,8 @@
             android:textColor="@color/seek_bar_progress"
             android:textSize="15sp"
 
+            app:layout_constraintVertical_bias="0.09"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/seek_contrast" />
@@ -73,7 +75,7 @@
             android:id="@+id/seek_brightness"
             android:layout_width="220dp"
             android:layout_height="37dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:progressDrawable="@drawable/seek_bar"
             android:thumb="@drawable/seek_thumb"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="37dp"
             android:gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
 
             android:text="Brightness"
             android:textColor="@color/seek_bar_progress"
@@ -106,7 +108,7 @@
             android:layout_height="37dp"
             android:gravity="center"
             android:text="Constrast"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
 
             android:textColor="@color/seek_bar_progress"
             android:textStyle="bold"
