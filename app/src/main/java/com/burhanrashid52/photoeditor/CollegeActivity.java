@@ -68,7 +68,7 @@ public class CollegeActivity extends AppCompatActivity implements EditingToolsAd
         });
 
         ImageView cancel = findViewById(R.id.collage_cancel);
-        done_txt.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancel();
