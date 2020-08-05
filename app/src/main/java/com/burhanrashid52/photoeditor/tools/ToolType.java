@@ -15,5 +15,9 @@ public enum ToolType {
     CROP,
     ADJUSTMENT,
     COLLAGE,
-    FRAME
+    FRAME,
+    CANCEL,
+    DONE,
+    CAMERA,
+    GALLERY
 }

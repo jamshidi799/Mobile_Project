@@ -35,6 +35,7 @@ import com.burhanrashid52.photoeditor.adjust.AdjustActivity;
 import com.burhanrashid52.photoeditor.base.BaseActivity;
 import com.burhanrashid52.photoeditor.filters.FilterListener;
 import com.burhanrashid52.photoeditor.filters.FilterViewAdapter;
+import com.burhanrashid52.photoeditor.tools.ActivityType;
 import com.burhanrashid52.photoeditor.tools.EditingToolsAdapter;
 import com.burhanrashid52.photoeditor.tools.ToolType;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -70,7 +71,7 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
     private TextView mTxtCurrentTool;
     private Typeface mWonderFont;
     private RecyclerView mRvTools, mRvFilters;
-    private EditingToolsAdapter mEditingToolsAdapter = new EditingToolsAdapter(this);
+    private EditingToolsAdapter mEditingToolsAdapter = new EditingToolsAdapter(this, ActivityType.EDITING);
     private FilterViewAdapter mFilterViewAdapter = new FilterViewAdapter(this);
     private ConstraintLayout mRootView;
     private ConstraintSet mConstraintSet = new ConstraintSet();

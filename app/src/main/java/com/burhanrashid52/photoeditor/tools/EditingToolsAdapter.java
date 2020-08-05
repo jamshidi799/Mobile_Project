@@ -24,8 +24,23 @@ public class EditingToolsAdapter extends RecyclerView.Adapter<EditingToolsAdapte
     private List<ToolModel> mToolList = new ArrayList<>();
     private OnItemSelected mOnItemSelected;
 
-    public EditingToolsAdapter(OnItemSelected onItemSelected) {
+    public EditingToolsAdapter(OnItemSelected onItemSelected, ActivityType activityType) {
         mOnItemSelected = onItemSelected;
+        switch (activityType) {
+            case EDITING:
+                setEditingActivityTools();
+                break;
+            case COLLAGE:
+                setCollageActivityTools();
+                break;
+        }
+    }
+
+    private void setCollageActivityTools() {
+        mToolList.add(new ToolModel("Camera", R.drawable.ic_camera, ToolType.CAMERA));
+        mToolList.add(new ToolModel("Gallery", R.drawable.ic_gallery, ToolType.GALLERY));
+    }
+    private void setEditingActivityTools() {
         mToolList.add(new ToolModel("Brush", R.drawable.ic_brush, ToolType.BRUSH));
         mToolList.add(new ToolModel("Text", R.drawable.ic_text, ToolType.TEXT));
         mToolList.add(new ToolModel("Eraser", R.drawable.ic_eraser, ToolType.ERASER));
@@ -36,7 +51,6 @@ public class EditingToolsAdapter extends RecyclerView.Adapter<EditingToolsAdapte
         mToolList.add(new ToolModel("Adjust", R.drawable.ic_baseline_adjust_24, ToolType.ADJUSTMENT));
         mToolList.add(new ToolModel("Collage", R.drawable.ic_baseline_view_column_24, ToolType.COLLAGE));
         mToolList.add(new ToolModel("Frame", R.drawable.ic_frame, ToolType.FRAME));
-
     }
 
     public interface OnItemSelected {
