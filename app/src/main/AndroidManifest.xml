@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CollegeActivity"></activity>
+        <activity android:name=".adjust.AdjustActivity"></activity>
+        <activity android:name=".CollegeActivity" />
         <activity
             android:name=".CropActivity"
             android:label="@string/title_activity_crop"

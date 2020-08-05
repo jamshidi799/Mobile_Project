@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.ChangeBounds;
 import androidx.transition.TransitionManager;
 
+import com.burhanrashid52.photoeditor.adjust.AdjustActivity;
 import com.burhanrashid52.photoeditor.base.BaseActivity;
 import com.burhanrashid52.photoeditor.filters.FilterListener;
 import com.burhanrashid52.photoeditor.filters.FilterViewAdapter;
@@ -77,6 +78,7 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
 
     private static final int CROP_ACTIVITY_CODE = 8000;
     private static final int COLLAGE_ACTIVITY_CODE = 8001;
+    private static final int ADJUSTMENT_ACTIVITY_CODE = 8002;
     @Nullable
     @VisibleForTesting
     Uri mSaveImageUri;
@@ -444,8 +446,10 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                 showActivity(new Intent(this, CropActivity.class), CROP_ACTIVITY_CODE);
                 break;
             case COLLAGE:
-                // TODO: change activity class
                 showActivity(new Intent(this, CollegeActivity.class), COLLAGE_ACTIVITY_CODE);
+                break;
+            case ADJUSTMENT:
+                showActivity(new Intent(this, AdjustActivity.class), ADJUSTMENT_ACTIVITY_CODE);
                 break;
         }
     }
