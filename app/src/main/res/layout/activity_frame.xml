@@ -6,26 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".frame.FrameActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frame_view"
+        android:layout_width="350dp"
+        android:layout_height="382dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/frame" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/frame_img"
-        android:layout_width="292dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/got_s" />
+        <ImageView
+            android:id="@+id/frame1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/frame" />
+
+        <ImageView
+            android:id="@+id/frame_img"
+            android:layout_width="292dp"
+            android:layout_height="350dp"
+            app:layout_constraintBottom_toBottomOf="@+id/frame1"
+            app:layout_constraintEnd_toEndOf="@+id/frame1"
+            app:layout_constraintHorizontal_bias="0.301"
+            app:layout_constraintStart_toStartOf="@+id/frame1"
+            app:layout_constraintTop_toTopOf="@+id/frame1"
+            app:srcCompat="@drawable/got_s" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/frame_done"
