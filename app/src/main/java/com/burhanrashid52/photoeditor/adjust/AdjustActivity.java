@@ -28,6 +28,7 @@ import java.io.ByteArrayOutputStream;
 
 public class AdjustActivity extends AppCompatActivity{
     Bitmap image;
+    Bitmap originalImage;
     ImageView imageView;
 
     @Override
@@ -47,12 +48,24 @@ public class AdjustActivity extends AppCompatActivity{
             }
         });
 
+        Button cancel = findViewById(R.id.adjust_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("adjust_image", convertBitmapToByteArraye(originalImage));
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
+
         SeekBar seekBrightness = (SeekBar) findViewById(R.id.seek_brightness);
         seekBrightness.setProgress(50);
         seekBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 //                imageView.setColorFilter(setBrightness(progress - 50));
+                if (progress % 3 != 0) return;
                 Bitmap bitmap = SetBrightness(image, progress - 50);
                 imageView.setImageBitmap(bitmap);
 
@@ -74,6 +87,7 @@ public class AdjustActivity extends AppCompatActivity{
         seekContrast.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress % 3 != 0) return;
                 Bitmap bitmap = adjustedContrast(image, progress - 50);
                 imageView.setImageBitmap(bitmap);
             }
@@ -95,6 +109,7 @@ public class AdjustActivity extends AppCompatActivity{
         image = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         imageView = findViewById(R.id.Adjust_img);
         imageView.setImageBitmap(image);
+        originalImage = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
     }
 
     Bitmap getAdjustImage() {
