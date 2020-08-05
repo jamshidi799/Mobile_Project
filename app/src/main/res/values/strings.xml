@@ -8,8 +8,18 @@
     <string name="label_text">Text</string>
     <string name="label_filter">Filter</string>
     <string name="label_adjust">Adjust</string>
+    <string name="label_crop">Crop</string>
     <string name="msg_save_image">Are you want to exit without saving image ?</string>
     <string name="app_intent_name">PhotoEditor</string>
     <string name="msg_save_image_to_share">Please save image to share</string>
-    <string name="msg_share_image">Share Image</string>>
+    <string name="msg_share_image">Share Image</string>
+    <string name="title_activity_crop">CropActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>>
 </resources>

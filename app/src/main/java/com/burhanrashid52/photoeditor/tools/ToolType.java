@@ -11,5 +11,8 @@ public enum ToolType {
     ERASER,
     FILTER,
     EMOJI,
-    STICKER
+    STICKER,
+    CROP,
+    ADJUSTMENT,
+    COLLAGE
 }

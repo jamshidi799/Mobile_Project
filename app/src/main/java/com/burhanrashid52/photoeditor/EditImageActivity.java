@@ -4,8 +4,11 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -33,7 +36,10 @@ import com.burhanrashid52.photoeditor.filters.FilterListener;
 import com.burhanrashid52.photoeditor.filters.FilterViewAdapter;
 import com.burhanrashid52.photoeditor.tools.EditingToolsAdapter;
 import com.burhanrashid52.photoeditor.tools.ToolType;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
@@ -69,6 +75,8 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
     private ConstraintSet mConstraintSet = new ConstraintSet();
     private boolean mIsFilterVisible;
 
+    private static final int CROP_ACTIVITY_CODE = 8000;
+    private static final int COLLAGE_ACTIVITY_CODE = 8001;
     @Nullable
     @VisibleForTesting
     Uri mSaveImageUri;
@@ -317,8 +325,16 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                         e.printStackTrace();
                     }
                     break;
+                case CROP_ACTIVITY_CODE:
+                    mPhotoEditorView.getSource().setImageBitmap(extractCroppedImage(data));
+                    break;
             }
         }
+    }
+
+    private Bitmap extractCroppedImage(Intent intent) {
+        byte[] byteArray = intent.getByteArrayExtra("cropped_image");
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
     @Override
@@ -424,9 +440,33 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
             case STICKER:
                 mStickerBSFragment.show(getSupportFragmentManager(), mStickerBSFragment.getTag());
                 break;
+            case CROP:
+                showActivity(CROP_ACTIVITY_CODE);
+                break;
+            case COLLAGE:
+                showActivity(COLLAGE_ACTIVITY_CODE);
+                break;
         }
     }
 
+    Bitmap getImageBitmap() {
+        ImageView imageView = mPhotoEditorView.getSource();
+        imageView.invalidate();
+        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
+        return drawable.getBitmap();
+    }
+
+    byte[] convertBitmapToByteArraye(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
+    }
+
+    void showActivity(int activityCode) {
+        Intent intent = new Intent(this, CropActivity.class);
+        intent.putExtra("image", convertBitmapToByteArraye(getImageBitmap()));
+        startActivityForResult(intent, activityCode);
+    }
 
     void showFilter(boolean isVisible) {
         mIsFilterVisible = isVisible;

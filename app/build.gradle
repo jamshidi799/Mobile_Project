@@ -26,6 +26,8 @@ dependencies {
     implementation 'ja.burhanrashid52:photoeditor:1.0.0'
     //implementation project(':photoeditor')
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
 
     testImplementation 'junit:junit:4.12'
 
@@ -33,6 +35,9 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+
+    // crop
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.+'
 }
 
 // make sure this line comes *after* you apply the Android plugin
