@@ -26,7 +26,7 @@
             app:srcCompat="@drawable/got_s" />
 
         <SeekBar
-            android:id="@+id/seekBar"
+            android:id="@+id/seek_contrast"
             android:layout_width="212dp"
             android:layout_height="27dp"
             android:layout_marginBottom="92dp"

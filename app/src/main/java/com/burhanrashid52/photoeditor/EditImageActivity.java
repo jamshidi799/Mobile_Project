@@ -330,12 +330,20 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                 case CROP_ACTIVITY_CODE:
                     mPhotoEditorView.getSource().setImageBitmap(extractCroppedImage(data));
                     break;
+                case ADJUSTMENT_ACTIVITY_CODE:
+                    mPhotoEditorView.getSource().setImageBitmap(extractAdjustImage(data));
+                    break;
             }
         }
     }
 
     private Bitmap extractCroppedImage(Intent intent) {
         byte[] byteArray = intent.getByteArrayExtra("cropped_image");
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+    }
+
+    private Bitmap extractAdjustImage(Intent intent) {
+        byte[] byteArray = intent.getByteArrayExtra("adjust_image");
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
