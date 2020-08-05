@@ -445,7 +445,7 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                 break;
             case COLLAGE:
                 // TODO: change activity class
-                showActivity(new Intent(this, CropActivity.class), COLLAGE_ACTIVITY_CODE);
+                showActivity(new Intent(this, CollegeActivity.class), COLLAGE_ACTIVITY_CODE);
                 break;
         }
     }

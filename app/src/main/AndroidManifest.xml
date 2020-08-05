@@ -16,11 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".CollegeActivity"></activity>
         <activity
             android:name=".CropActivity"
             android:label="@string/title_activity_crop"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".EditImageActivity"
             android:screenOrientation="portrait"
