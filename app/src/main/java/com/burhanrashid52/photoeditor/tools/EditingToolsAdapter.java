@@ -35,6 +35,8 @@ public class EditingToolsAdapter extends RecyclerView.Adapter<EditingToolsAdapte
         mToolList.add(new ToolModel("Crop", R.drawable.ic_baseline_crop_24, ToolType.CROP));
         mToolList.add(new ToolModel("Adjust", R.drawable.ic_baseline_adjust_24, ToolType.ADJUSTMENT));
         mToolList.add(new ToolModel("Collage", R.drawable.ic_baseline_view_column_24, ToolType.COLLAGE));
+        mToolList.add(new ToolModel("Frame", R.drawable.ic_frame, ToolType.FRAME));
+
     }
 
     public interface OnItemSelected {
