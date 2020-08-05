@@ -46,4 +46,13 @@
         android:text="Done"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="end|bottom" />
+
+    <Button
+        android:id="@+id/crop_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

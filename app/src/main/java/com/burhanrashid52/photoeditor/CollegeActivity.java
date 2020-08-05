@@ -35,6 +35,8 @@ public class CollegeActivity extends AppCompatActivity {
     private static final int PICK_REQUEST = 53;
     private static final int CAMERA_REQUEST = 52;
 
+    Bitmap image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +81,17 @@ public class CollegeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button cancel = findViewById(R.id.collage_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("image", convertBitmapToByteArraye(image));
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 
     Bitmap getCollageImage() {
@@ -97,7 +110,7 @@ public class CollegeActivity extends AppCompatActivity {
 
     private void setBundleData() {
         byte[] byteArray = getIntent().getByteArrayExtra("image");
-        Bitmap image = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        image = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         newCollageImageView(image);
     }
 

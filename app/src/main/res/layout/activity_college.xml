@@ -40,7 +40,14 @@
         android:layout_alignParentEnd="true"
         />
 
-
+    <Button
+        android:id="@+id/collage_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
+        />
 <!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"-->

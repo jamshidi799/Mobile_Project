@@ -37,7 +37,7 @@ public class CropActivity extends AppCompatActivity {
             }
         });
 
-        Button cancel = findViewById(R.id.collage_cancel);
+        Button cancel = findViewById(R.id.crop_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
