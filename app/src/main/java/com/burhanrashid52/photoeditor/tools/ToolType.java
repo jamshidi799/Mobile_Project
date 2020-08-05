@@ -21,5 +21,6 @@ public enum ToolType {
     CAMERA,
     GALLERY,
     ROTATE_RIGHT,
-    ROTATE_LEFT
+    ROTATE_LEFT,
+    FLIP
 }

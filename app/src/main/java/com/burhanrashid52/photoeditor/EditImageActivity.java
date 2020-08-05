@@ -484,7 +484,19 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
             case ROTATE_LEFT:
                 rotateLeft();
                 break;
+            case FLIP:
+                flip();
+                break;
         }
+    }
+
+    private void flip() {
+        Bitmap bitmap = getImageBitmap();
+        Matrix matrix = new Matrix();
+        matrix.postScale(-1, 1,  bitmap.getWidth() / 2f, bitmap.getHeight() / 2f);
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+        mPhotoEditorView.getSource().setImageBitmap(bitmap);
     }
 
     private void rotateRight() {

@@ -44,6 +44,7 @@ public class EditingToolsAdapter extends RecyclerView.Adapter<EditingToolsAdapte
         mToolList.add(new ToolModel("Crop", R.drawable.ic_baseline_crop_24, ToolType.CROP));
         mToolList.add(new ToolModel("Rotate Right", R.drawable.ic_baseline_rotate_right_24, ToolType.ROTATE_RIGHT));
         mToolList.add(new ToolModel("Rotate Left", R.drawable.ic_baseline_rotate_left_24, ToolType.ROTATE_LEFT));
+        mToolList.add(new ToolModel("Flip", R.drawable.ic_baseline_flip_24, ToolType.FLIP));
         mToolList.add(new ToolModel("Brush", R.drawable.ic_brush, ToolType.BRUSH));
         mToolList.add(new ToolModel("Eraser", R.drawable.ic_eraser, ToolType.ERASER));
         mToolList.add(new ToolModel("Text", R.drawable.ic_text, ToolType.TEXT));
