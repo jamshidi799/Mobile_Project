@@ -36,6 +36,8 @@ import com.burhanrashid52.photoeditor.base.BaseActivity;
 import com.burhanrashid52.photoeditor.filters.FilterListener;
 import com.burhanrashid52.photoeditor.filters.FilterViewAdapter;
 import com.burhanrashid52.photoeditor.tools.ActivityType;
+import com.burhanrashid52.photoeditor.frame.FrameActivity;
+
 import com.burhanrashid52.photoeditor.tools.EditingToolsAdapter;
 import com.burhanrashid52.photoeditor.tools.ToolType;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -80,6 +82,7 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
     private static final int CROP_ACTIVITY_CODE = 8000;
     private static final int COLLAGE_ACTIVITY_CODE = 8001;
     private static final int ADJUSTMENT_ACTIVITY_CODE = 8002;
+    private static final int FRAME_ACTIVITY_CODE = 8003;
     @Nullable
     @VisibleForTesting
     Uri mSaveImageUri;
@@ -335,6 +338,9 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                 case ADJUSTMENT_ACTIVITY_CODE:
                     mPhotoEditorView.getSource().setImageBitmap(extractAdjustImage(data));
                     break;
+                case FRAME_ACTIVITY_CODE:
+                    mPhotoEditorView.getSource().setImageBitmap(extractFrameImage(data));
+                    break;
             }
         }
     }
@@ -346,6 +352,11 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
 
     private Bitmap extractAdjustImage(Intent intent) {
         byte[] byteArray = intent.getByteArrayExtra("adjust_image");
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+    }
+
+    private Bitmap extractFrameImage(Intent intent) {
+        byte[] byteArray = intent.getByteArrayExtra("frame_image");
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
@@ -462,6 +473,7 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                 showActivity(new Intent(this, AdjustActivity.class), ADJUSTMENT_ACTIVITY_CODE);
                 break;
             case FRAME:
+                showActivity(new Intent(this, FrameActivity.class), FRAME_ACTIVITY_CODE);
                 break;
         }
     }

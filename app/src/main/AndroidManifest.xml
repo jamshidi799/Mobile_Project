@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".adjust.AdjustActivity"></activity>
+        <activity android:name=".frame.FrameActivity"></activity>
+        <activity android:name=".adjust.AdjustActivity" />
         <activity android:name=".CollegeActivity" />
         <activity
             android:name=".CropActivity"
