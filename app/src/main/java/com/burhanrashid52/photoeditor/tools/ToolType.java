@@ -19,5 +19,7 @@ public enum ToolType {
     CANCEL,
     DONE,
     CAMERA,
-    GALLERY
+    GALLERY,
+    ROTATE_RIGHT,
+    ROTATE_LEFT
 }

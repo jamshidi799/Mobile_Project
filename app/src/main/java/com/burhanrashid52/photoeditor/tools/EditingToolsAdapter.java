@@ -51,6 +51,8 @@ public class EditingToolsAdapter extends RecyclerView.Adapter<EditingToolsAdapte
         mToolList.add(new ToolModel("Adjust", R.drawable.ic_baseline_adjust_24, ToolType.ADJUSTMENT));
         mToolList.add(new ToolModel("Collage", R.drawable.ic_baseline_view_column_24, ToolType.COLLAGE));
         mToolList.add(new ToolModel("Frame", R.drawable.ic_frame, ToolType.FRAME));
+        mToolList.add(new ToolModel("Rotate Right", R.drawable.ic_baseline_rotate_right_24, ToolType.ROTATE_RIGHT));
+        mToolList.add(new ToolModel("Rotate Left", R.drawable.ic_baseline_rotate_left_24, ToolType.ROTATE_LEFT));
     }
 
     public interface OnItemSelected {

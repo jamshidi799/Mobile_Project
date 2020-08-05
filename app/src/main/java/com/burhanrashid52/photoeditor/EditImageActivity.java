@@ -351,12 +351,12 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
     }
 
     private Bitmap extractAdjustImage(Intent intent) {
-        byte[] byteArray = intent.getByteArrayExtra("adjust_image");
+        byte[] byteArray = intent.getByteArrayExtra("image");
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
     private Bitmap extractFrameImage(Intent intent) {
-        byte[] byteArray = intent.getByteArrayExtra("frame_image");
+        byte[] byteArray = intent.getByteArrayExtra("image");
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
@@ -475,7 +475,23 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
             case FRAME:
                 showActivity(new Intent(this, FrameActivity.class), FRAME_ACTIVITY_CODE);
                 break;
+            case ROTATE_RIGHT:
+                rotateRight();
+                break;
+            case ROTATE_LEFT:
+                rotateLeft();
+                break;
         }
+    }
+
+    private void rotateRight() {
+
+//        mPhotoEditorView.getSource().setImageBitmap(extractImage(new_image));
+    }
+
+    private void rotateLeft() {
+//        mPhotoEditorView.getSource().setImageBitmap(extractImage(new_image));
+
     }
 
     Bitmap getImageBitmap() {

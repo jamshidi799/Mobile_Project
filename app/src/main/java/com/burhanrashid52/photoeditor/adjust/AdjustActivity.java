@@ -43,7 +43,7 @@ public class AdjustActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("adjust_image", convertBitmapToByteArraye(getAdjustImage()));
+                intent.putExtra("image", convertBitmapToByteArraye(getAdjustImage()));
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }
@@ -54,7 +54,7 @@ public class AdjustActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("adjust_image", convertBitmapToByteArraye(originalImage));
+                intent.putExtra("image", convertBitmapToByteArraye(originalImage));
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }

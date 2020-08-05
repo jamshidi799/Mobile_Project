@@ -1,6 +1,7 @@
 package com.burhanrashid52.photoeditor.frame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,7 +39,7 @@ public class FrameActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent();
-                intent.putExtra("frame_image", convertBitmapToByteArraye(getBitmapOfView()));
+                intent.putExtra("image", convertBitmapToByteArray(getBitmapOfView()));
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }
@@ -49,7 +50,7 @@ public class FrameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("frame_image", convertBitmapToByteArraye(originalImage));
+                intent.putExtra("image", convertBitmapToByteArray(originalImage));
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }
@@ -66,7 +67,7 @@ public class FrameActivity extends AppCompatActivity {
 
 
 
-    byte[] convertBitmapToByteArraye(Bitmap bitmap) {
+    byte[] convertBitmapToByteArray(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         return stream.toByteArray();
@@ -74,7 +75,7 @@ public class FrameActivity extends AppCompatActivity {
 
 
     Bitmap getBitmapOfView() {
-        View view = findViewById(R.id.frame_view);
+        RelativeLayout view = findViewById(R.id.frame_view);
         Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         view.draw(canvas);
