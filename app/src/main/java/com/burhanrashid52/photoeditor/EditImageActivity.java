@@ -488,12 +488,28 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
     }
 
     private void rotateRight() {
-
-//        mPhotoEditorView.getSource().setImageBitmap(extractImage(new_image));
+        ImageView img = mPhotoEditorView.getSource();
+        Bitmap bitmap = ((BitmapDrawable)img.getDrawable()).getBitmap();
+        Matrix matrix = new Matrix();
+        matrix.postRotate(90);
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+        scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+        mPhotoEditorView.getSource().setImageBitmap(bitmap);
     }
 
     private void rotateLeft() {
-//        mPhotoEditorView.getSource().setImageBitmap(extractImage(new_image));
+        ImageView img = mPhotoEditorView.getSource();
+        Bitmap bitmap = ((BitmapDrawable)img.getDrawable()).getBitmap();
+        Matrix matrix = new Matrix();
+        matrix.postRotate(-90);
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+        scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+
+        mPhotoEditorView.getSource().setImageBitmap(bitmap);
 
     }
 
@@ -551,23 +567,4 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
         }
     }
 
-    public Bitmap rotateRight(Bitmap bitmap) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(90);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-        scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-        return bitmap;
-    }
-
-    public Bitmap rotateLeft(Bitmap bitmap) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(-90);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-        scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-        return bitmap;
-    }
 }
