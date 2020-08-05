@@ -326,14 +326,15 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                     }
                     break;
                 case CROP_ACTIVITY_CODE:
-                    mPhotoEditorView.getSource().setImageBitmap(extractCroppedImage(data));
+                case COLLAGE_ACTIVITY_CODE:
+                    mPhotoEditorView.getSource().setImageBitmap(extractImage(data));
                     break;
             }
         }
     }
 
-    private Bitmap extractCroppedImage(Intent intent) {
-        byte[] byteArray = intent.getByteArrayExtra("cropped_image");
+    private Bitmap extractImage(Intent intent) {
+        byte[] byteArray = intent.getByteArrayExtra("image");
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
@@ -444,7 +445,6 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                 showActivity(new Intent(this, CropActivity.class), CROP_ACTIVITY_CODE);
                 break;
             case COLLAGE:
-                // TODO: change activity class
                 showActivity(new Intent(this, CollegeActivity.class), COLLAGE_ACTIVITY_CODE);
                 break;
         }

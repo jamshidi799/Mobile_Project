@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:splitMotionEvents="true">
+    android:splitMotionEvents="true"
+    android:id="@+id/colrlid">
 
     <ImageView
         android:id="@+id/collageBgView"
@@ -11,36 +12,49 @@
         android:layout_centerVertical="true"
         android:background="#FFD4B081" />
 
-    <com.burhanrashid52.photoeditor.college.CollageView
-        android:id="@+id/collageView1"
+    <Button
+        android:id="@+id/add_image_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/daffodils" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="gallery"
+        android:layout_alignParentEnd="true" />
 
-    <com.burhanrashid52.photoeditor.college.CollageView
-        android:id="@+id/collageView2"
+    <Button
+        android:id="@+id/add_image_camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/green" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:text="Button"
+        android:layout_alignParentStart="true"
+        />
 
-    <com.burhanrashid52.photoeditor.college.CollageView
-        android:id="@+id/collageView3"
+    <Button
+        android:id="@+id/collage_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/hawaii" />
+        android:text="Done"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
 
-    <com.burhanrashid52.photoeditor.college.CollageView
-        android:id="@+id/collageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/sunset" />
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentEnd="false"-->
+<!--        android:layout_alignParentRight="false"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="9dp"-->
+<!--        android:layout_marginLeft="9dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:src="@drawable/ic_close" />-->
 
 </RelativeLayout>
