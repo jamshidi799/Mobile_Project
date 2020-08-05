@@ -488,27 +488,20 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
     }
 
     private void rotateRight() {
-        ImageView img = mPhotoEditorView.getSource();
-        Bitmap bitmap = ((BitmapDrawable)img.getDrawable()).getBitmap();
+        Bitmap bitmap = getImageBitmap();
         Matrix matrix = new Matrix();
         matrix.postRotate(90);
         Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-        scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
         bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
         mPhotoEditorView.getSource().setImageBitmap(bitmap);
     }
 
     private void rotateLeft() {
-        ImageView img = mPhotoEditorView.getSource();
-        Bitmap bitmap = ((BitmapDrawable)img.getDrawable()).getBitmap();
+        Bitmap bitmap = getImageBitmap();
         Matrix matrix = new Matrix();
         matrix.postRotate(-90);
         Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
         bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-        scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-        bitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-
         mPhotoEditorView.getSource().setImageBitmap(bitmap);
 
     }
