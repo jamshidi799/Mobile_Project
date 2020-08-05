@@ -14,5 +14,6 @@ public enum ToolType {
     STICKER,
     CROP,
     ADJUSTMENT,
-    COLLAGE
+    COLLAGE,
+    FRAME
 }

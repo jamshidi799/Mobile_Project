@@ -460,6 +460,8 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
             case ADJUSTMENT:
                 showActivity(new Intent(this, AdjustActivity.class), ADJUSTMENT_ACTIVITY_CODE);
                 break;
+            case FRAME:
+                break;
         }
     }
 

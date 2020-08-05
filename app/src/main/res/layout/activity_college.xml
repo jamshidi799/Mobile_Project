@@ -1,9 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:splitMotionEvents="true"
-    android:id="@+id/colrlid">
+    android:splitMotionEvents="true">
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:splitMotionEvents="true"
+        android:id="@+id/colrlid">
     <ImageView
         android:id="@+id/collageBgView"
         android:layout_width="match_parent"
@@ -11,6 +15,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="#FFD4B081" />
+
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/add_image_gallery"
