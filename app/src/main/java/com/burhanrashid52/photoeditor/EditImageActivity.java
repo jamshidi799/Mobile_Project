@@ -441,10 +441,11 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
                 mStickerBSFragment.show(getSupportFragmentManager(), mStickerBSFragment.getTag());
                 break;
             case CROP:
-                showActivity(CROP_ACTIVITY_CODE);
+                showActivity(new Intent(this, CropActivity.class), CROP_ACTIVITY_CODE);
                 break;
             case COLLAGE:
-                showActivity(COLLAGE_ACTIVITY_CODE);
+                // TODO: change activity class
+                showActivity(new Intent(this, CropActivity.class), COLLAGE_ACTIVITY_CODE);
                 break;
         }
     }
@@ -462,8 +463,7 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
         return stream.toByteArray();
     }
 
-    void showActivity(int activityCode) {
-        Intent intent = new Intent(this, CropActivity.class);
+    void showActivity(Intent intent, int activityCode) {
         intent.putExtra("image", convertBitmapToByteArraye(getImageBitmap()));
         startActivityForResult(intent, activityCode);
     }
