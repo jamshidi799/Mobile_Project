@@ -36,6 +36,17 @@ public class CropActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button cancel = findViewById(R.id.collage_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("image", convertBitmapToByteArraye(image));
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 
     private void initData() {
