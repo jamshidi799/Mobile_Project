@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.burhanrashid52.photoeditor.R;
 
@@ -37,7 +38,7 @@ public class AdjustActivity extends AppCompatActivity{
         setContentView(R.layout.activity_adjust);
         initData();
 
-        Button done = findViewById(R.id.adjust_done);
+        TextView done = findViewById(R.id.adjust_done);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +49,7 @@ public class AdjustActivity extends AppCompatActivity{
             }
         });
 
-        Button cancel = findViewById(R.id.adjust_cancel);
+        ImageView cancel = findViewById(R.id.adjust_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
