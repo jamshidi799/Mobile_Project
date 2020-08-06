@@ -37,13 +37,15 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CollegeActivity extends AppCompatActivity implements EditingToolsAdapter.OnItemSelected{
     private static final int PICK_REQUEST = 53;
     private static final int CAMERA_REQUEST = 52;
     private EditingToolsAdapter toolsAdapter = new EditingToolsAdapter(this, ActivityType.COLLAGE);
     private RecyclerView tools;
-    Bitmap image;
+    private Bitmap image;
+    private ArrayList<CollageView> children = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +110,7 @@ public class CollegeActivity extends AppCompatActivity implements EditingToolsAd
         RelativeLayout myLayout = findViewById(R.id.colrlid);
         CollageView collageView = new CollageView(this);
         collageView.setImageBitmap(image);
+        children.add(collageView);
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -118,7 +121,13 @@ public class CollegeActivity extends AppCompatActivity implements EditingToolsAd
         collageView.setOnTouchListener(new MultiTouchListener());
     }
 
-
+    private void reset() {
+        RelativeLayout myLayout = findViewById(R.id.colrlid);
+        myLayout.removeAllViews();
+        for (CollageView child : children) {
+            myLayout.removeView(child);
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -177,5 +186,11 @@ public class CollegeActivity extends AppCompatActivity implements EditingToolsAd
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_REQUEST);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        reset();
     }
 }
